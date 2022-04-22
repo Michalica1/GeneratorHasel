@@ -65,5 +65,17 @@ function generujHaslo(){
     for(let i=0;i<iloscSpec;i++){
         haslo+=znakiSpec.charAt(Math.floor(Math.random()*znakiSpec.length));
     }
-    document.getElementById("test").value=haslo;
+    document.getElementById("test").value=zmianaKolejnosci(haslo);
+}
+function zmianaKolejnosci(haslo){
+    let wynik=haslo.split('');
+    for(let i=0;i<wynik.length;i++){
+        let los=Math.floor(Math.random()*wynik.length);
+        let tmp=wynik[i];
+        wynik[i]=wynik[los];
+        wynik[los]=tmp;
+    }
+    haslo=wynik.join('');
+    return haslo;
+
 }
